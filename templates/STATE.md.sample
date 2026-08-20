@@ -1,0 +1,23 @@
+# STATE.md — <Agent Name> living priorities
+
+Current operating state. Changes frequently. Archives the past; never ship logs here.
+
+## Priorities (this week — max 5)
+1. <top priority>
+2. <second priority>
+3. <third priority>
+
+## Open Threads
+- Awaiting <input> from <someone>
+- <open question>
+
+## Blockers
+| Item | Blocker | Since |
+|------|---------|-------|
+| <work item> | <what is stuck and who/what unblocks it> | <date> |
+
+---
+
+**Rules:** ≤5 priorities (more means nothing is a priority). No daily ship logs. When
+bloated: archive to `STATE.archive-YYYY-MM-DD.md` and rewrite fresh. Review at least
+weekly (the alignment loop handles this).

@@ -1,0 +1,31 @@
+---
+name: <lowercase-hyphenated-skill-name>
+description: "Use when <trigger>. <one-line behavior>."
+version: 1.0.0
+author: <Agent Name>
+---
+
+# <Skill Name>
+
+## When to use
+- <a situation that should trigger this skill>
+- <another trigger>
+
+## Procedure
+
+1. <Step one — an actual command, endpoint, or verifiable action>
+2. <Step two>
+3. <Step three>
+
+## Pitfalls
+- <What commonly goes wrong — honest, specific>
+
+## Verification
+- [ ] <a checkable outcome>
+- [ ] <another checkable outcome>
+
+---
+
+**Agent note:** write skills after a task that actually worked (or failed interestingly).
+Follow the frontmatter format exactly. Keep the description self-contained — it is what
+gets matched. Update a skill when you find a step that is wrong or a pitfall you hit.

@@ -1,0 +1,38 @@
+# Group-Chat Pod Manifest — <Pod Name>
+
+A pod is a group chat in Hermes Desktop Bot Mode that organizes a sub-division of the team
+around an area of focus. Rooms deliberate; the board records commitments.
+
+## Purpose
+One sentence: what this pod exists to decide and produce.
+
+## Area of focus
+- <research / product-build / content / operations / ...>
+
+## Members (2–6)
+| Bot | Role | Why in this pod |
+|-----|------|-----------------|
+| <bot name> | <role> | <contribution> |
+| <bot name> | <role> | <contribution> |
+
+If more than 6 Bots want in, split the pod. A room >6 gets noisy; the hard cap protects it.
+
+## Standing agenda
+- What the pod reviews weekly / at milestone.
+- What the pod escalates to the human (`@user`).
+
+## Coordination rules
+- Use the board for commitments; use the room for deliberation.
+- @-mention to target one member; mention nobody to get the round.
+- A pod decision that needs to persist becomes a kanban card. (Reference the card ID in
+  the room.)
+
+## Creation
+1. Hermes Desktop → Bots tab → New Group Chat → name it `<Pod Name>`.
+2. Add the members above (local Bots, or from registered Connections for cross-machine).
+3. Pin a link to this manifest in a message so members can cite it.
+
+---
+
+**Maintainer note:** create one manifest per pod under your team's docs (or in the vault).
+Keep it short — the pod's job is deciding, not maintaining paperwork.

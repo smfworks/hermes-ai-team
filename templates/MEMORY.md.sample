@@ -1,0 +1,14 @@
+# MEMORY.md — the agent's personal notes
+
+Declarative facts separated by `§`. Injected into every turn — keep high-signal.
+
+Project repo: <path>. Uses <test framework>.
+§
+<Web tool quirk — e.g.> search results can be stale for papers — prefer <direct source>.
+§
+Email: use the agentmail SDK for replies. Allow-list: <authorized senders>.
+§
+Models: primary = <model> via <provider>. Research routes to <model>. Coding to <model>.
+§
+Update this file when you learn something durable about the environment or a tool.
+Procedures belong in skills, not here.

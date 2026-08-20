@@ -1,0 +1,21 @@
+# user-level systemd unit template: run one Hermes profile's gateway persistently.
+#
+# Install:
+#   1. Copy to ~/.config/systemd/user/hermes-gateway@<profile>.service
+#   2. systemctl --user daemon-reload
+#   3. loginctl enable-linger $USER
+#   4. systemctl --user enable --now hermes-gateway@atlas
+#
+# The gateway keeps the profile available for scheduled/kanban/dispatch work.
+
+[Unit]
+Description=Hermes Gateway — %i
+After=network.target
+
+[Service]
+ExecStart=/home/USER/.hermes/hermes-agent/venv/bin/hermes -p %i gateway run
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target
