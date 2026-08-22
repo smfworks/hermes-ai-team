@@ -99,6 +99,18 @@ See [`checklists/PHASE3.md`](../checklists/PHASE3.md).
 **Done when:** two or more agents exist, each with a distinct SOUL, lane, and (optionally)
 model; you can address either by name and get different, role-appropriate behaviour.
 
+## What success looks like
+
+You ask Atlas and Forge the same question ("What should we do about this paper?").
+Atlas offers a vault note and a relevance score. Forge talks about whether the
+harness can run the implied workload — and refuses to invent a research
+conclusion. They do not sound like two copies of one assistant.
+
+**Expected outputs to capture:**
+- `hermes profile list` showing at least two profiles
+- Two `hermes -p <name> chat -q "State your name and lane."` replies that differ
+- Each profile has its own `SOUL.md` that is not a verbatim template
+
 ---
 
 Next: **[Phase 4 — Team Coordination](04-phase-4-team-coordination.md)**

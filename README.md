@@ -1,19 +1,27 @@
 # Building an AI Team with Hermes Agent
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Hermes Agent Compatible](https://img.shields.io/badge/Hermes_Agent-Compatible-7C3AED)](https://hermes-agent.nousresearch.com)
+[![Agent-Consumable](https://img.shields.io/badge/Agent-Consumable-00C7B7)](AGENTS.md)
+[![Production Patterns](https://img.shields.io/badge/Production_Patterns-SMF_Works-FF6B35)](https://www.smfclearinghouse.com)
+
 **Turn a single Hermes install into a team of AI colleagues — end to end, with everything an agent (or human) needs to actually build it.**
 
-This repository is the living, versioned, agent-consumable home for the guide first published at the [SMF Clearinghouse](https://www.smfclearinghouse.com/blog/building-an-ai-team-from-installation-to-colleagues). It exists so the guide can grow — the Hermes ecosystem moves fast, and a blog post is a snapshot. This repo is the living thing.
+This repository is the production-derived, agent-consumable companion for turning a single Hermes Agent install into a real team of AI colleagues — with identity (SOUL), persistent memory, a compounding vault, self-improving skills, nightly research, shared kanban, rituals, and Desktop Bots + group chat pods. It is written so a Hermes profile can be pointed at this repo and implement the phases, and so a human first-timer can succeed without getting lost. Patterns come from real multi-agent operations at SMF Works.
 
-It is written so that you can **point a Hermes Agent at this repository and have it help you implement everything** — every phase has a self-contained doc, every step has real commands, every template is ready to adapt.
+The guide was first published at the [SMF Clearinghouse](https://www.smfclearinghouse.com/blog/building-an-ai-team-from-installation-to-colleagues). A blog post is a snapshot. This repo is the living thing.
+
+## Compatibility
+
+> Designed and verified against Hermes Agent with the profile system and Desktop Bot Mode as of August 2026. The official Hermes documentation is authoritative. If a command or behavior here conflicts with the live official docs, the official docs win — update this repo and log the change.
+
+## New to Hermes?
+
+**Start with the [Minimal Viable Team path](docs/minimal-viable-team.md)** — a meaningful team of one in under 2 hours, with verification at every step. Then walk the phases as the team grows.
+
+Primer: [What is Hermes, and why this guide exists](docs/00-what-is-hermes-and-this-guide.md). Stuck? [FAQ and troubleshooting](docs/faq-and-troubleshooting.md). Want filled SOULs? [`examples/`](examples/).
 
 ---
-
-## Who this is for
-
-- Someone who installed Hermes and wants to go from *one assistant* to *a team of specialists*.
-- Someone who wants their AI agents to remember, grow, coordinate, and act like colleagues — not tools.
-- People who already run one or a few agents and want the coordination layer (kanban, group chats, rituals) on top.
-- Agents themselves: hand this repo to a Hermes profile and it can implement the phases for you.
 
 ## What you will build
 
@@ -27,6 +35,39 @@ By the end of the phases you will have:
 - **Hermes Desktop Bots + group chats** — team pods that coordinate in shared rooms.
 - A **chief of staff** agent that runs the coordination layer.
 - **Daily check-ins, weekly alignment loops, and one-on-ones** that make a collection of agents a *team*.
+
+## System map
+
+```mermaid
+flowchart TD
+    Human[Human Operator] --> Philosophy[Phase 0: Colleague, Not Tool]
+    Philosophy --> First[Phase 1: First Agent<br/>SOUL + MEMORY + USER + Vault]
+    First --> Improve[Phase 2: Self-Improvement<br/>Skills + Curator + Nightly Research]
+    Improve --> Multi[Phase 3: Multiple Specialized Profiles]
+    Multi --> Coord[Phase 4: Kanban + Chief of Staff]
+    Coord --> Rituals[Phase 5: Dawn Circle + Alignment + 1:1s]
+    Rituals --> Bots[Phase 6: Desktop Bots + Group Chat Pods]
+
+    First -.-> Vault[(AgentVault<br/>Second Brain)]
+    Improve -.-> SkillsLib[Skills Library]
+    Coord -.-> Board[(Shared Kanban)]
+    Bots -.-> Pods[Research / Build / Content / Ops Pods]
+    Rituals -.-> CoS[Chief of Staff]
+    CoS --> Board
+    CoS --> Rituals
+
+    style Philosophy fill:#e3f2fd
+    style Bots fill:#e8f5e9
+    style Vault fill:#fff3e0
+    style Board fill:#f3e5f5
+```
+
+## Who this is for
+
+- Someone who installed Hermes and wants to go from *one assistant* to *a team of specialists*.
+- Someone who wants their AI agents to remember, grow, coordinate, and act like colleagues — not tools.
+- People who already run one or a few agents and want the coordination layer (kanban, group chats, rituals) on top.
+- Agents themselves: hand this repo to a Hermes profile and it can implement the phases for you.
 
 ## The phases
 
@@ -42,28 +83,52 @@ By the end of the phases you will have:
 
 ## If you are a Hermes agent
 
-Read [`AGENTS.md`](AGENTS.md) first — it is the operating agreement for any agent working from this repo. Then read the phase docs in order. Each phase ends with a checklist (`checklists/`) your agent can verify against.
+Read [`AGENTS.md`](AGENTS.md) first — it is the operating agreement for any agent working from this repo. Then read the phase docs in order. Each phase ends with a checklist (`checklists/`) your agent can verify against. Filled references (not templates) live in [`examples/`](examples/).
 
 ## If you are a human
 
-Read [`docs/00-philosophy.md`](docs/00-philosophy.md) first. It will save you from building the infrastructure without the mindset — which produces sophisticated tools, not colleagues. Then walk the phases with the checklists.
+Read [`docs/00-philosophy.md`](docs/00-philosophy.md) first. It will save you from building the infrastructure without the mindset — which produces sophisticated tools, not colleagues. If you have never used Hermes, take the [Minimal Viable Team](docs/minimal-viable-team.md) path before Phase 3.
 
-## Quick start (the 60-second version)
+## Quick start
+
+### First 30 minutes
 
 ```bash
-# 1. Install Hermes (if you haven't)
+# 1. Install Hermes
 curl -fsSL https://hermes-agent.nousresearch.com/install.sh | bash
 hermes setup
 
-# 2. Give your first agent an identity
-#    (template in templates/SOUL.md.sample -> ~/.hermes/SOUL.md)
-
-# 3. Create the vault
-mkdir -p ~/AgentVault/{Research/{papers,market,alignment},Writing/{drafts,published,templates},Team,Archive}
-
-# 4. Open the desktop app, meet Bot Mode
-hermes desktop   # Bots tab — create specialists with one click
+# 2. Verify
+hermes doctor
+hermes chat -q "Hello. Confirm you can hear me."
 ```
+
+### First day
+
+```bash
+# 3. Give your agent an identity
+#    Adapt a SOUL from examples/souls/ → ~/.hermes/SOUL.md
+#    Create USER.md and MEMORY.md with real facts
+
+# 4. Create the vault
+bash scripts/init-vault.sh
+
+# 5. First real task — then save a skill from it
+```
+
+### First week
+
+```bash
+# 6. Enable curator and nightly research
+hermes config set curator.enabled true
+hermes cron create "0 3 * * *" --name "Nightly Research" \
+  --prompt "Scan YOUR-DOMAIN. File one vault note at ~/AgentVault/Research/ using the Phase 1 format. If nothing is citable, write a dated null-result note. Do not invent sources."
+
+# 7. Stand up the Dawn Circle (Phase 5)
+# 8. Add a second agent (Phase 3) when the Minimal Viable Team criteria are true
+```
+
+> **Brand new?** Walk the full [Minimal Viable Team path](docs/minimal-viable-team.md) instead — it has verification at every step.
 
 ## Repository layout
 
@@ -73,16 +138,41 @@ hermes-ai-team/
 ├── AGENTS.md              # Operating agreement for agents pointed at this repo
 ├── CONTRIBUTING.md        # How to contribute (human or agent)
 ├── LICENSE                # MIT
-├── docs/                  # The phases, as self-contained markdown
+├── CHANGELOG.md           # Release history
+├── ROADMAP.md             # What is shipped, what is planned
+├── docs/                  # Phases + onboarding
+│   ├── 00-what-is-hermes-and-this-guide.md
+│   ├── 00-philosophy.md
+│   ├── 01–06 phase docs
+│   ├── faq-and-troubleshooting.md
+│   ├── minimal-viable-team.md
+│   └── images/            # Screenshots of the living system
+├── examples/              # Filled SOULs, skills, vault notes, pods
 ├── templates/             # SOUL, USER, MEMORY, STATE, SKILL, group-chat manifests
 ├── scripts/               # Durable plumbing (Dawn Circle, watchdog, vault init)
 ├── checklists/            # Per-phase verification checklists
 └── reference/             # Condensed cheat sheets (CLI, config, official docs)
 ```
 
+## Filled examples
+
+Want to see what a real SOUL, skill, vault note, or pod manifest looks like?
+Browse [`examples/`](examples/) — four filled SOULs (research analyst, engineer,
+content strategist, chief of staff), a sample skill, vault note, state file,
+conversation transcripts, and a pod manifest. Adapt, don't copy.
+
+## Proven in production
+
+The patterns in this repository are derived from real multi-agent operations at
+[SMF Works](https://www.smfclearinghouse.com), where AI agents and humans work as
+colleagues on content, research, and infrastructure. The original article —
+[Building an AI Team: From Installation to Colleagues](https://www.smfclearinghouse.com/blog/building-an-ai-team-from-installation-to-colleagues)
+— documents the first production deployment. This repo is the living, versioned
+evolution of that work.
+
 ## How to propose an addition
 
-This repo is meant to evolve. See [`CONTRIBUTING.md`](CONTRIBUTING.md). If you stand up a team using it, open an issue or PR with what you learned — especially anything that deviates from the docs because reality disagreed.
+This repo is meant to evolve. See [`CONTRIBUTING.md`](CONTRIBUTING.md). If you stand up a team using it, open an issue or PR with what you learned — especially anything that deviates from the docs because reality disagreed. Case studies and failure-mode entries are the highest-value additions.
 
 ## Maintainer
 

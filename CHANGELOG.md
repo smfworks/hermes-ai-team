@@ -3,6 +3,42 @@
 All notable changes to this repository are recorded here. Format follows
 [Keep a Changelog](https://keepachangelog.com/): Added / Changed / Fixed / Removed.
 
+## [1.1.0] — 2026-08-22
+
+### Added
+- **Filled example library** (`examples/`): four production-flavored SOULs (Atlas
+  research analyst, Forge engineer, Quill content strategist, refined chief of staff),
+  a filled skill, sample vault note, state file, before/after conversation transcripts,
+  and a research pod manifest. Each with an "adapt, don't copy" header.
+- **First-time primer** (`docs/00-what-is-hermes-and-this-guide.md`): what Hermes is,
+  why this repo exists, how to use it as human or agent, compatibility note.
+- **FAQ & troubleshooting** (`docs/faq-and-troubleshooting.md`): 12 entries with
+  symptom → diagnosis → fix → verification, covering SOUL injection, vault writes,
+  cron silent failures, Desktop Bots, memory persistence, model auth, group chat
+  routing, kanban JSON shapes, cross-machine peers, lane overstepping, doctor gaps,
+  and checklist verification failures.
+- **Minimal Viable Team** (`docs/minimal-viable-team.md`): a 4-block, 2-hour guided
+  path from install to a meaningful team of one, with verification at every step.
+- **Mermaid system map** in README: visual architecture diagram showing the full
+  phase flow from philosophy through Desktop Bots + pods.
+- **"What success looks like"** sections at the end of every phase doc (1–6) with
+  concrete success descriptions and expected outputs.
+- **Badges** in README: MIT license, Hermes Agent compatible, agent-consumable,
+  production patterns from SMF Works.
+- **Proven-in-production** paragraph and **examples callout** in README.
+- **Graduated quick start** in README: first 30 minutes / first day / first week.
+- **Case-study invitation** in CONTRIBUTING with "what we need most" list.
+- `docs/images/` directory for screenshots (captures of the live Desktop remain a
+  follow-up if the living system is not available at release time).
+
+### Changed
+- README top half overhauled: positioning paragraph, system map, compatibility note,
+  MVT link, badges, expanded quick start, updated repository layout.
+- ROADMAP updated: v1.1 items marked shipped, v1.2 targets refined (failure playbook,
+  case studies, live screenshots).
+- GitHub repository topics set: hermes-agent, multi-agent, ai-team, orchestration,
+  hermes, ai-agents, soul, agent-identity, nous-research.
+
 ## [1.0.0] — 2026-08-19
 
 ### Added

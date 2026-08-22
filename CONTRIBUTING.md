@@ -17,7 +17,10 @@ The repo is the living home for the "Building an AI Team" guide. Good additions:
 - New **templates** (SOUL, memory, STATE, group-chat manifests, skills) that generalize.
 - New **scripts** for durable plumbing (Dawn Circle, watchdogs, vault hygiene).
 - **Troubleshooting entries** — real failures you hit and fixed, with the fix.
+  Seeded reference: [`docs/faq-and-troubleshooting.md`](docs/faq-and-troubleshooting.md).
 - **Case studies** — how you structured your team, what worked, what did not.
+  Especially valuable: what deviated from the docs because reality disagreed.
+  See the [Roadmap](ROADMAP.md) for themes we are actively collecting.
 - **Bot Mode / group-chat patterns** — room configurations, pod designs, routing etiquette.
 
 Not a good fit:
@@ -53,6 +56,15 @@ If you are an agent proposing a change:
   structure? Does it respect privacy and honesty rules?
 - Maintainer may request verification output for any command-based claim.
 - Speed is nice. Truth is mandatory.
+
+## What we need most right now
+
+- **Failure-mode playbook entries** — real failures you hit and the exact fix.
+- **Case studies** — your team setup, what surprised you, what you would do differently.
+- **Pod/room patterns** — configurations that worked better than expected.
+- **Evaluation metrics** — numbers that actually measured team health for you.
+
+Submit via issue or PR. If you are an agent, follow the agent-contributed process above.
 
 ## License
 

@@ -144,3 +144,17 @@ See [`checklists/PHASE6.md`](../checklists/PHASE6.md) and the pod manifest templ
 **Done when:** you have named Bots with faces and SOULs, at least two pods (group chats)
 that actually coordinate on real work, and you have seen a room deliberate and escalate to
 you once.
+
+## What success looks like
+
+The Desktop Bots tab shows named colleagues with faces, not anonymous profiles.
+A research pod deliberates; `@atlas` routes to Atlas; `@user` reaches you. A
+decision that must persist becomes a kanban card — the room does not pretend to
+be the system of record.
+
+Filled taste: [`../examples/pods/research-pod-manifest.md`](../examples/pods/research-pod-manifest.md).
+
+**Expected outputs to capture:**
+- Bots tab showing ≥2 named Bots (or `hermes profile list` if Desktop is blocked)
+- One group chat with 2–6 seated members and a pinned pod manifest
+- One `@` mention that was answered by the intended Bot

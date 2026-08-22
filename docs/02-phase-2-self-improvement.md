@@ -126,6 +126,20 @@ See [`checklists/PHASE2.md`](../checklists/PHASE2.md).
 **Done when:** the agent has saved at least one skill from real work, the curator is
 enabled, and one nightly research cron is running and producing vault notes you can read.
 
+## What success looks like
+
+The agent finishes a real task, writes a skill from that procedure, and the next
+similar task loads it. Overnight (or after `hermes cron run <id>`) a dated vault
+note exists that you can read — including an honest null-result note if nothing
+was citable.
+
+Filled taste: [`../examples/skills/sample-paper-or-market-deep-dive.md`](../examples/skills/sample-paper-or-market-deep-dive.md).
+
+**Expected outputs to capture:**
+- `find` of a `SKILL.md` with frontmatter + verification
+- `hermes curator status` showing enabled
+- `hermes cron runs <id> --limit 3` plus the vault file it produced
+
 ---
 
 Next: **[Phase 3 — Second Agent](03-phase-3-second-agent.md)**
