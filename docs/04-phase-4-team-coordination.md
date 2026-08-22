@@ -103,6 +103,20 @@ See [`checklists/PHASE4.md`](../checklists/PHASE4.md).
 dispatcher can spawn an assigned agent, and a chief-of-staff agent owns ongoing
 coordination.
 
+## What success looks like
+
+A task appears on the shared board, assigned to a specialist. The chief of staff
+does not do the work — it notices staleness, comments once, and escalates a
+blocker with options. You can point at the board and see who owns what without
+scrolling a chat.
+
+Filled taste: [`../examples/souls/chief-of-staff.md`](../examples/souls/chief-of-staff.md).
+
+**Expected outputs to capture:**
+- `hermes kanban list --board team` showing at least one cross-agent task
+- A chief-of-staff profile whose SOUL says it coordinates and does not execute
+- One real dispatch or assignment you can show in CLI output
+
 ---
 
 Next: **[Phase 5 — Autonomy & Rituals](05-phase-5-autonomy-and-rituals.md)**

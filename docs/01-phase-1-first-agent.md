@@ -112,6 +112,22 @@ it) before declaring this phase done.
 **Done when:** one agent exists with an identity (SOUL), persistent memory of you, and a
 vault it files into.
 
+## What success looks like
+
+You open a fresh session and say: "Who are you?" The agent responds with its name,
+role, and lanes — not a generic "I am an AI assistant." You tell it a fact about
+yourself; the next session remembers it. You ask it to file a note in the vault;
+`cat ~/AgentVault/Research/test-note.md` returns real content.
+
+Filled taste (adapt, do not copy): [`../examples/souls/`](../examples/souls/).
+
+**Expected outputs to capture:**
+- `hermes doctor` clean result
+- `ls` of `~/.hermes/SOUL.md` (or the profile path) — file exists and is not a
+  verbatim template
+- A fresh session where the agent states its identity correctly
+- `find ~/AgentVault -type f` showing the test note
+
 ---
 
 Next: **[Phase 2 — Self-Improvement](02-phase-2-self-improvement.md)**

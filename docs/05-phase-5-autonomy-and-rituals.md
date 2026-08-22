@@ -110,6 +110,18 @@ See [`checklists/PHASE5.md`](../checklists/PHASE5.md).
 human actually reads, peer review has happened at least once, and you can articulate when a
 task should be solo vs coordinated.
 
+## What success looks like
+
+A Dawn Circle card exists for today. Each participating agent left one three-line
+check-in — not a status ping. The close script actually closed it (see the JSON
+unwrap note in `scripts/dawn-circle-close.py`). Weekly alignment reports live in
+the vault and name judgment gaps, not just a ship list.
+
+**Expected outputs to capture:**
+- `hermes cron list` showing Dawn Circle create/close jobs
+- `hermes kanban show <id>` (or the Team/ vault note) with attributed comments
+- One alignment note the operator actually read
+
 ---
 
 Next: **[Phase 6 — Bots & Group Chats](06-bots-and-group-chats.md)** — the newest layer.
