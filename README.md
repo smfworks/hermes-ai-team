@@ -157,9 +157,19 @@ hermes-ai-team/
 ## Filled examples
 
 Want to see what a real SOUL, skill, vault note, or pod manifest looks like?
-Browse [`examples/`](examples/) — four filled SOULs (research analyst, engineer,
-content strategist, chief of staff), a sample skill, vault note, state file,
-conversation transcripts, and a pod manifest. Adapt, don't copy.
+Browse [`examples/`](examples/) — five filled SOULs (research analyst, engineer,
+content strategist, chief of staff, and **WisdomForge parent-operator**), a sample
+skill, vault note, state file, conversation transcripts, and a pod manifest.
+Adapt, don't copy.
+
+## WisdomForge parent-operator track
+
+Running the [WisdomForge academy](https://smfwisdomforge.com) with your family?
+See [`docs/wisdomforge-parent-operator.md`](docs/wisdomforge-parent-operator.md)
+for a dedicated guide: how to run sittings, set up band-locked child profiles,
+use the search API, and understand the four-band permission system. Pair it with
+the [kids Hermes profiles repo](https://github.com/smfworks/wisdomforge-kids-Hermes-profiles)
+for child band-locked guides.
 
 ## Proven in production
 
