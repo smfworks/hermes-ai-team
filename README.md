@@ -167,7 +167,10 @@ Adapt, don't copy.
 Running the [WisdomForge academy](https://smfwisdomforge.com) with your family?
 See [`docs/wisdomforge-parent-operator.md`](docs/wisdomforge-parent-operator.md)
 for a dedicated guide: how to run sittings, set up band-locked child profiles,
-use the search API, and understand the four-band permission system. Pair it with
+use the search API, and understand the four-band permission system. Now includes
+multi-child family guidance (separate profiles per child, sibling sitting
+management, band transitions) and a profile sync checklist for keeping child
+profiles aligned with academy updates. Pair it with
 the [kids Hermes profiles repo](https://github.com/smfworks/wisdomforge-kids-Hermes-profiles)
 for child band-locked guides.
 

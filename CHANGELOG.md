@@ -3,6 +3,19 @@
 All notable changes to this repository are recorded here. Format follows
 [Keep a Changelog](https://keepachangelog.com/): Added / Changed / Fixed / Removed.
 
+## [1.2.0] — 2026-08-26
+
+### Added
+- **Multi-child family guidance** in `docs/wisdomforge-parent-operator.md`: one profile
+  per child, sibling profile management table, mixed-band sitting rules, band-transition
+  protocol (create new profile, don't modify old one).
+- **Profile sync checklist** in `docs/wisdomforge-parent-operator.md`: what changes in
+  the academy vs what stays fixed in child profiles, monthly sync procedure, and the
+  non-negotiables that never change during sync (SOUL seed, PII rules, hint-first).
+- **Multi-child awareness** section in `examples/souls/wisdomforge-parent-operator.md`:
+  SOUL addition for parents operating multiple child profiles across different bands.
+- **README updated** with multi-child and profile sync feature mentions.
+
 ## [1.1.0] — 2026-08-22
 
 ### Added
