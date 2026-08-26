@@ -36,6 +36,10 @@ where it is heading. Items move between sections as they land.
       review → publish → measure), including the X/OpenClaw and Clearinghouse paths.
 
 ## Next (v1.2 target)
+- [x] **WisdomForge multi-child guidance and profile sync** — multi-child family
+      operations (separation, scheduling, cross-contamination prevention) and
+      profile sync helpers (diagnostic script + manual sync procedure) added to
+      the parent-operator track.
 - [ ] **Failure-mode playbook** — promote FAQ entries into a structured playbook for the
       most common ways team setups break (dispatch model config, token exhaustion,
       credential drift, room non-participation), each with the fix we actually applied.

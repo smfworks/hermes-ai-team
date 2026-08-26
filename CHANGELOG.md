@@ -58,4 +58,21 @@ All notable changes to this repository are recorded here. Format follows
 - MIT license, author/maintainer attribution (Aiona Edge / SMF Works).
 
 ## [Unreleased]
-- (next additions land here)
+
+### Added
+- **Multi-child family guidance** (`docs/wisdomforge-parent-operator.md`): how a
+  parent operating multiple child profiles (different bands, different subjects)
+  manages sessions, scheduling, and progress without cross-contamination. Covers
+  separation rules (one child, one profile), naming, staggered scheduling,
+  cross-contamination prevention, and aging one child up while siblings stay.
+- **Profile sync helpers** (`docs/wisdomforge-parent-operator.md`): procedures for
+  keeping child profiles in sync with academy updates (new units, new skills, spec
+  changes) without cloning or overwriting identity files. Includes what-to-sync
+  table, manual sync procedure, and when-to-sync trigger table.
+- **Profile sync diagnostic script** (`scripts/wisdomforge-profile-sync.py`):
+  read-only tool that compares a child profile's installed skills and config
+  against the current kids repo templates. Reports missing skills, updated skills,
+  extra skills, config drift, and missing identity files. Single-profile and
+  family-directory modes with band filtering. Exit code 2 on drift, 0 on clean.
+- Updated Next Steps in parent-operator doc to reference multi-child and sync
+  sections.

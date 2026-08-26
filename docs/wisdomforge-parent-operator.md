@@ -183,6 +183,162 @@ The Faith & Reason unit requires special handling:
 
 ---
 
+## Multi-Child Family Guidance
+
+Families with more than one child in WisdomForge need more than one child profile. This section covers how to operate several band-locked profiles without cross-contamination — no shared memory, no shared sessions, no shared USER.md.
+
+### Core rule: one child, one profile
+
+Each child gets a separate Hermes profile with its own SOUL, USER, MEMORY, config, and design record. The kids repo states this flatly: "This kit does not merge siblings." The rule is non-negotiable because the things that make a profile safe for one child (band-locked tools, age-appropriate voice, single-child memory) break the moment you share it across children.
+
+### What stays separate
+
+| Artifact | Why it must not be shared |
+|----------|--------------------------|
+| SOUL.md | Each child's guide speaks at their band level with their display name |
+| USER.md | Contains the current sitting for *that* child — different subjects, different progress |
+| MEMORY.md | One child's learning history is not another child's context |
+| Config / tools | Band permissions differ by age — a Little Thinkers profile has fewer tools than a Young Minds profile |
+| Design record | Private maintenance notes per child (band, capabilities, eval results) |
+| Session history | Each child's conversations stay in their own profile's sessions |
+
+### What can be shared (as templates, not live copies)
+
+- **Skill templates.** The `wisdomforge-ritual`, `socratic-homework`, and `escalation-and-safety` skills are the same *templates*. You install a copy into each child's profile. A change for one child is not automatic for another — and that is the point.
+- **The adult parent-operator profile.** You (the parent) have one adult Hermes profile that acts as the control plane. It runs the parent-setup-helper, reviews sessions, and pauses or deletes child profiles. It must not ingest child MEMORY.md files into the adult memory store.
+
+### Naming profiles
+
+Use display names the family already uses in speech — not legal names plus school. Profile ids stay short and boring: `willow`, `juniper`, `scout`. The kids repo recommends this convention. Short ids prevent accidental PII leaks in logs and terminal output.
+
+### Scheduling sittings across children
+
+Each child works through sittings at their own pace. You are the scheduler — the adult profile is the assistant. Here is a pattern that works:
+
+1. **Pick the band and sitting per child.** Visit `smfwisdomforge.com/start`, choose the band for each child, and note the sitting slug. Write it into that child's USER.md pairing line: `Currently working on WisdomForge lesson: Stoics — circle-you-control.` One child might be in Philosophy while another is in Math — that is fine.
+2. **Stagger the times.** Little Thinkers sittings are 15–20 minutes with a grown-up in the room. Young Minds are 25–30. Emerging Adults are 35–45. If you have three children, you cannot run three sittings simultaneously — the model requires your presence for the youngest. Stagger by band: youngest first while older children read independently, then rotate.
+3. **Use the adult profile for parallel prep.** While one child is doing the hands-on Try This (no model needed), ask your adult profile to summarize the next child's parent briefing. The adult profile is the only one that sees multiple children's briefings — and it must not carry that context into a child's session.
+4. **Do not batch sessions across children.** Each sitting is a discrete event for one child. Do not line up three profiles in one terminal and rotate between them. The child needs your attention for the full sitting, and the integrity rule is per-sitting, not per-batch.
+
+### Preventing cross-contamination
+
+Cross-contamination is the primary risk when operating multiple child profiles. It happens when one child's context leaks into another child's session — through shared memory, shared sessions, or operator confusion.
+
+**Hard rules:**
+
+1. **Never copy MEMORY.md between child profiles.** One child's learning history is not another child's context. If both children are studying Stoics, they still have separate sessions and separate memories.
+2. **Never share USER.md across siblings.** The pairing line names the current sitting for *that* child. Two children in the same unit still have different progress.
+3. **Run `parental-session-review` on one profile at a time.** The kids repo's review skill is per-profile. Do not review two children's sessions in one pass.
+4. **Run `family-isolation-check` after any profile change.** The check verifies that one child's profile does not reference another's data. Run it after creating a new child profile, after aging one child up, and after any config change.
+5. **The adult profile does not carry child context.** Your adult Hermes profile can help you prepare multiple briefings, but it must not inject that preparation into a child's session. Use the adult profile for prep, then switch to the child's profile for the sitting.
+
+### Aging one child up while siblings stay
+
+When a child moves from 5–10 to 11–14, or 11–14 to 15–18, treat it as a redesign (see the kids repo `MAINTENANCE.md` for the full checklist). The aging-up is per child. A sibling staying in elementary keeps the old tools and the old band. Do not rush the older child's redesign while the younger child is mid-sitting — finish one, then start the other.
+
+### What this is not
+
+- Not a household account. Each child is a separate profile.
+- Not a reason to give the oldest child an adult colleague profile. The adult profile is yours.
+- Not a shared tutoring session. One child, one sitting, one profile at a time.
+
+---
+
+## Profile Sync Helpers
+
+The WisdomForge academy ships new units, new sittings, and spec updates over time. When the academy changes, child profiles need to stay current — without cloning, overwriting, or breaking the band-locked design. This section covers how to keep child profiles in sync.
+
+### What changes in the academy
+
+| Change type | Example | Impact on child profiles |
+|-------------|---------|--------------------------|
+| New unit | A new Philosophy unit ships | Parent may update USER.md sitting line — no profile change needed |
+| New sitting in existing unit | A new Stoics sitting is added | Same — just update the pairing line |
+| Band spec change | `BANDS.md` updates tool permissions | Parent must review and manually apply the change |
+| Skill template update | `wisdomforge-ritual` skill gets a new step | Parent copies the updated template into each child's profile |
+| Security or safety update | `escalation-and-safety` skill revised | Parent applies to all child profiles immediately |
+
+### The sync rule: update templates, preserve identity
+
+Sync means updating the *templates* (skills, config snippets) in each child's profile while preserving the *identity* files (SOUL.md, USER.md, MEMORY.md). You never overwrite a child's SOUL, USER, or MEMORY to sync. You update the skill files and config snippets that the kids repo provides as templates.
+
+### What to sync (and what not to)
+
+| Sync (safe to update) | Do NOT sync (identity files) |
+|-----------------------|------------------------------|
+| `skills/*/SKILL.md` (template copies) | `SOUL.md` |
+| `config-snippet.yaml` (band defaults) | `USER.md` |
+| Design record (if band specs changed) | `MEMORY.md` |
+
+### Sync procedure (manual, per child)
+
+For each child profile:
+
+1. **Check the kids repo for changes.** Compare the skill versions in the child's `skills/` directory against the current templates in the kids repo. The `wisdomforge-profile-sync.py` helper (below) automates this comparison.
+2. **Review the diff.** Read what changed in each skill template. If a safety skill changed, apply it immediately. If a ritual skill added a step, review it and decide whether to apply.
+3. **Copy updated templates into the child profile.** Replace the SKILL.md file in the child's `skills/<skill-name>/` directory. Do not touch SOUL.md, USER.md, or MEMORY.md.
+4. **If band specs changed, review config.** Read the updated `configs/<band>.yaml.snippet` from the kids repo. Compare against the child's current config. Apply only the changes you approve. Do not auto-apply config changes — a band spec change may remove a tool the child is using, and you decide whether to remove it.
+5. **Run `EVALS.md` if anything structural changed.** If a skill was added, removed, or substantially changed, or if config changed, re-run the evals per the kids repo `EVALS.md` to verify the profile still behaves correctly.
+6. **Update the private design record.** Note what was synced, when, and why.
+7. **Repeat for each child.** Each profile is synced independently. Do not batch-sync.
+
+### The sync helper script
+
+The adult team repo includes `scripts/wisdomforge-profile-sync.py` — a diagnostic tool that compares a child profile's installed skills against the current kids repo templates and reports what differs.
+
+```bash
+# Check one child profile against the kids repo
+python3 scripts/wisdomforge-profile-sync.py \
+  --child-profile ~/.hermes/profiles/willow \
+  --kids-repo ~/projects/wisdomforge-kids-Hermes-profiles
+
+# Check all child profiles in a family directory
+python3 scripts/wisdomforge-profile-sync.py \
+  --family-dir ~/.hermes/profiles \
+  --kids-repo ~/projects/wisdomforge-kids-Hermes-profiles \
+  --band little
+```
+
+The script is **read-only and diagnostic** — it reports what differs, it does not modify files. You review the diff and apply changes manually. This is intentional: the parent approves every change to a child's profile. No script should auto-overwrite a child's skill files.
+
+**What the script checks:**
+
+- Missing skills: the kids repo recommends a skill for this band that is not installed in the child profile
+- Updated skills: the child's installed skill differs from the kids repo template
+- Extra skills: the child has a skill not in the kids repo's band recommendation (may be parent-approved — the script flags it, not removes it)
+- Config drift: the child's config snippet differs from the band defaults in the kids repo
+
+**What the script does NOT do:**
+
+- It does not write to any file
+- It does not touch SOUL.md, USER.md, or MEMORY.md
+- It does not create or delete profiles
+- It does not auto-apply updates — the parent decides what to sync
+
+### When to sync
+
+| Trigger | Action |
+|---------|--------|
+| Academy ships a new unit | No sync needed — update USER.md pairing line only |
+| Kids repo updates a skill template | Run the sync helper, review diffs, apply manually |
+| Kids repo updates band specs (`BANDS.md`, `configs/`) | Run the sync helper, review config drift, apply approved changes, re-run EVALS.md |
+| Kids repo updates safety skills | Apply immediately to all child profiles |
+| Monthly maintenance check | Run the sync helper against all child profiles as a routine check |
+| After aging a child up | Sync is part of the redesign — see `MAINTENANCE.md` in the kids repo |
+
+### Academy search API for sync awareness
+
+Your adult profile can query the academy search API to stay aware of new content:
+
+```text
+Search smfwisdomforge.com/api/search for "new sittings" and tell me what
+units have been added since I last checked.
+```
+
+This does not sync anything — it tells you what is new so you can decide whether to update a child's USER.md pairing line.
+
+---
+
 ## Cross-References
 
 - **Academy site:** [smfwisdomforge.com](https://smfwisdomforge.com)
@@ -202,5 +358,7 @@ The Faith & Reason unit requires special handling:
 3. Visit [smfwisdomforge.com/start](https://smfwisdomforge.com/start) and pick a band
 4. Run your first sitting
 5. When your child is ready for their own guide, use the kids repo to set up a band-locked profile
+6. If you have multiple children, read [Multi-Child Family Guidance](#multi-child-family-guidance) above
+7. Set up a monthly [Profile Sync](#profile-sync-helpers) check using `scripts/wisdomforge-profile-sync.py`
 
 The academy is the curriculum. You are the teacher. Hermes is the assistant. That order matters.
