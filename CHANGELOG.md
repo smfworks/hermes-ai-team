@@ -73,6 +73,12 @@ All notable changes to this repository are recorded here. Format follows
 ## [Unreleased]
 
 ### Added
+- **WisdomForge Quick Start** (`docs/wisdomforge-quick-start.md`): a condensed
+  30-minute setup guide for parents who want to get going fast without reading
+  the full 268-line parent-operator guide. Covers fresh profile creation, band
+  selection, first sitting, and post-sitting steps, with links to the full
+  guide for depth. README updated to surface the quick-start path alongside the
+  full guide.
 - **Multi-child family guidance** (`docs/wisdomforge-parent-operator.md`): how a
   parent operating multiple child profiles (different bands, different subjects)
   manages sessions, scheduling, and progress without cross-contamination. Covers
