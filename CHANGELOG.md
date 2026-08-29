@@ -3,6 +3,17 @@
 All notable changes to this repository are recorded here. Format follows
 [Keep a Changelog](https://keepachangelog.com/): Added / Changed / Fixed / Removed.
 
+## [1.3.0] — 2026-08-29
+
+### Added
+- **Minimal Viable Parent-Operator path** (`docs/wisdomforge-minimal-parent-operator.md`):
+  a 30-minute setup guide that gets a parent to their first WisdomForge sitting
+  without walking through the full multi-agent phases. Four blocks: adult profile
+  setup, sitting selection and prep, optional child guide setup, running the sitting.
+  Includes recommended first sittings per band, quick reference table, and
+  cross-links to the full parent-operator guide for families who want more.
+- **README updated** with MVPO fast-path link.
+
 ## [1.2.0] — 2026-08-26
 
 ### Added

@@ -179,6 +179,10 @@ profile sync checklist. Pair it with
 the [kids Hermes profiles repo](https://github.com/smfworks/wisdomforge-kids-Hermes-profiles)
 for child band-locked guides.
 
+**In a hurry?** See [`docs/wisdomforge-minimal-parent-operator.md`](docs/wisdomforge-minimal-parent-operator.md)
+— a 30-minute path to your first sitting. One adult profile, one sitting, no
+multi-agent phases required.
+
 ## Proven in production
 
 The patterns in this repository are derived from real multi-agent operations at
